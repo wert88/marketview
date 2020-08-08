@@ -1,0 +1,124 @@
+{% load static %}
+
+ 
+<style>
+
+#listitems li {
+	padding:0 5px;
+}
+
+#searching {
+	border: solid #74B6C7;
+
+}
+
+#category {
+	border: solid #74B6C7;
+}
+</style>
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+
+
+  <a class="navbar-brand" href="/"><img src="{% static '/img/logo.png' %}" ></a>
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+	<ul id="listitems" class="nav mr-auto mt-2 mt-lg-0 justify-content-center" >
+			<li >
+                  <a class="nav-link " href="/books">
+				<img src="{% static 'img/book.png' %}" >
+			</a>
+			</li>
+			
+			<li>
+			<a class="nav-link waves-effect" href="/men_fashion">
+				<img src="{% static 'img/clothing.png' %}" >
+			</a>
+			</li>
+			<li>
+			<a class="nav-link waves-effect" href="/kids">
+				<img src="{% static 'img/kids-baby.png' %}" >
+			</a>
+			</li>
+			<li>
+			<a class="nav-link waves-effect" href="/electronics">
+				<img src="{% static 'img/smartphones.png' %}" >
+			</a>
+			</li>
+			<li>
+			<a class="nav-link waves-effect" href="/sports">
+				<img src="{% static 'img/sport.png' %}" >
+			</a>
+			</li>
+			<li>
+			<a class="nav-link waves-effect" href="/women_fashion">
+				<img src="{% static 'img/stationery.png' %}" >
+			</a>
+			</li>
+			<li>
+			<a class="nav-link waves-effect" href="/health">
+				<img src="{% static 'img/beauty-health.png' %}" >
+			</a>
+			</li>
+	</ul>
+
+<form  class="form-inline justify-content-center" method="GET" action="/search/">
+
+		<select id="category" class="form-control" name="category">
+			<option value="">Categories</option>
+			<option value="S" >Sports</option>
+			<option value="H" >Health & Beauty</option>
+			<option value="B" >Books</option>
+			<option value="MF" >Men Fashion</option>	
+			<option value="WF" >Women Fashion</option>
+			<option value="PH" >Phones & Tablets</option>
+			<option value="K" >Kids & Babies</option>
+			<option value="L" >Laptops & PCs</option>	
+		</select>
+		
+			<input id="searching" class="form-control mr-sm-2" type="search" name="search_title" placeholder="Search..." aria-label="Search">
+
+		<!--button class="btn btn-sm btn-outline-primary my-2 my-sm-0" type="submit"><strong>Search</strong></button-->
+
+
+
+		<!--'start'  div class="dropdown">
+		
+		
+		
+		
+		  <span class="btn badge-primary badge-pill dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			{{user}}
+		  </span>
+		  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="{% url 'logout' %}"><strong>Logout</strong></a>
+		  </div>
+		</div>
+
+
+<!-- Button to Open the Modal -->
+
+		<!--span class=""><a class="btn badge-primary badge-pill" href="{% url 'login' %}" data-toggle="modal" data-target="#myModal"> Log in </a></span>
+		<span class=""><a class="btn btn-outline-primary badge-pill" href="{% url 'signup' %}" data-toggle="modal" data-target="#SignupModal"> Sign up </a></span
+		
+		
+		
+		'finish'-->
+
+</form>
+
+
+
+  </div>
+</nav>
+<!--div style="margin-top:150px;" -->
+
+</div>

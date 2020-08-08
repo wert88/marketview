@@ -1,0 +1,70 @@
+{% extends 'registration/usersbase.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block base_content %}
+
+
+<!-- BREAKER (Signup) -->
+
+	<div class="breaker" style=" padding:50px;">
+		<h1><span>Sign up</span></h1>
+	</div>
+	
+<!-- BREAKER (Sign up) -->
+
+<div class="row justify-content-center">
+<div class="col-6 " >
+	<form class="mx-auto" method="post" enctype="multipart/form-data">
+	    {% csrf_token %}
+	    {{form|crispy}}
+	    <button type="submit" class="submit-btn btn btn-primary">Submit</button>
+	</form>
+</div>
+</div>
+
+
+{% endblock %}
+
+<form class="mx-auto" method="post" enctype="multipart/form-data">
+	    
+	<div id="div_id_username" class="form-group"> 
+
+		<label for="id_username" class=" requiredField">
+		Username
+		</label>
+		<div class=""> 
+		<input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" class="textinput textInput form-control" required="" id="id_username"> 
+		<small id="hint_id_username" class="form-text text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small> 
+		</div> 
+		
+	</div>
+
+	<div id="div_id_password1" class="form-group">
+
+		<label for="id_password1" class=" requiredField">Password </label> 
+		<div class=""> 
+			<input type="password" name="password1" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password1" aria-autocomplete="list"> 
+			<small id="hint_id_password1" class="form-text text-muted"></small> 
+		</div>
+		
+	</div> 
+
+	<div id="div_id_password2" class="form-group"> 
+
+		<label for="id_password2" class=" requiredField">Password confirmation</label> 
+		<div class=""> 
+			<input type="password" name="password2" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password2"> 
+			<small id="hint_id_password2" class="form-text text-muted">Enter the same password as before, for verification.</small> 
+		</div>
+		
+	</div>
+	
+		<button type="submit" class="submit-btn btn btn-primary waves-effect waves-light">Submit</button>
+
+</form>

@@ -1,0 +1,110 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <style>
+
+	 aside{
+		float:right;
+		background-color:gray;
+		padding:20px;
+	  }
+	  
+	.breaker h1 {
+		width: 100%; 
+		text-align: center;
+		color:gray;
+		border-bottom: 0.5px solid #ccc; 
+		line-height: 0.1em;
+		margin: 10px 0 20px;
+	  } 
+
+	.breaker h1 span { 
+		font-family: 'Tangerine', serif;
+		background:#fff; 
+		padding:0 10px; 
+		color:#74B6C7;
+	  }
+	h5 {
+		color:skyblue;
+	
+	}
+	
+	.category-padding{ 
+		padding:10px;
+	
+	}
+
+    </style>
+   <div class="container">
+   
+<div style="margin-top:110px;"></div>
+
+      {% block category_content %}{% endblock %}
+
+<section class="text-center mb-4">
+
+        <div class="row wow fadeIn">
+
+          {% for item in Items %}
+				<div class="col-lg-3 col-md-6 mb-4">
+
+            <div class="card">
+
+              <div class="view overlay">
+                {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top">{% endcomment %}
+                <img src="{{ item.image.url }}" class="card-img-top">
+                <a href="{{ item.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+              <div class="card-body text-center">
+                <a href="{{ item.get_absolute_url }}" class="grey-text">
+                  <h5>{{ item.get_category_display }}</h5>
+                </a>
+                <h5>
+                  <strong>
+                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}</a>
+                  </strong>
+                </h5>
+
+                <h4 class="font-weight-bold blue-text">
+                  <strong>
+              {% if item.discount_price %}
+              <span class="mr-1">
+                <del style="color:gray;" >${{ item.price }}</del>
+              </span>
+              <span>${{ item.discount_price }}</span>
+              {% else %}
+              <span style="font-weight:bold;">${{ item.price }}</span>
+              {% endif %}
+                  </strong>
+                </h4>
+				<h5>
+
+					  {% if item.get_label_display == "danger" %}
+							<span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
+					  {% elif item.get_label_display == "primary" %}
+						    <span class="badge badge-pill {{ item.get_label_display }}-color">Best seller</span>
+					  {% else %}
+							<span style="color:white;">A</span>
+					  {% endif %}
+
+				</h5>
+              </div>
+				<a class="card-footer text-center" href="{{ item.get_absolute_url }}" style="text-decoration: none;" >
+					<strong class="text-muted" >QUICK REVIEW</strong>
+				</a>
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+		
+</div>
+      </section>
+
+{% endblock %}
+
